@@ -1,0 +1,148 @@
+/* CSS RSET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+/* whole game body setup */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(#e66465, #9198e5);
+    /* background: linear-gradient(to right, #e66465, #9198e5);; */
+}
+
+/* Game center section styling  */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background: #9d9bef;
+    padding: 40px 60px;
+}
+
+/* Game Title Styling... */
+h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: whitesmoke;
+}
+
+/* Game Buttom Styling.. */
+.reset {
+    color: rgb(4, 20, 4);
+    padding: 15px 20px;
+    letter-spacing: .15em;
+    font-weight: 600;
+    border: none;
+    background: #b3b2d7;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    /* transition: border-radius .3s ease-in-out; */
+    transition: all .3s ease-in-out;
+}
+
+.reset:hover {
+    border-radius: 0px;
+}
+
+.reset:focus {
+    color: white;
+    background: pink;
+}
+
+/* game body Setup */
+.game {
+    width: 440px;
+    height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+/* GAME CENTER Content Styling  */
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: whitesmoke;
+    transform: rotateY(180deg);
+    transition: .27s;
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #e48080;
+    /* opacity: .87; */
+    transition: .27s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+
+/* List added through the JAVASCRIPT */
+.item.openBox {
+    transform: rotateY(0deg);
+}
+
+.openBox:after,
+.boxMatch:after {
+    transform: rotateY(180deg);
+}
+
+
+.footer {
+    color: #6a6a6a;
+    text-align: center;
+    background-color: #2a2a2a;
+    width: 100%;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+}
+
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 70vw;
+        overflow: hidden;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 0;
+        padding-right: 0;
+        align-content: center;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .game {
+        height: 250px;
+        width: 250px;
+    }
+
+    .item {
+        height: 50px;
+        width: 50px;
+        font-size: 2.5em;
+    }
+}
